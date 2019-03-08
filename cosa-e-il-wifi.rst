@@ -51,9 +51,11 @@ gli `standard Wi-Fi esistenti sono 9, anche se i più utilizzati sono 4.
 +-----------------+-----------------+-----------------+-----------------+
 | 802.11n         | 300 Mb/s        | 2.4GHz/5,4 GHz  | Onde Radio      |
 +-----------------+-----------------+-----------------+-----------------+
-| 802.11ac        | 1300 Mb/s       | 5,4 GHz         | Onde Radio      |
+| 802.11ac wave1  | 1300 Mb/s       | 5,4 GHz         | Onde Radio      |
 +-----------------+-----------------+-----------------+-----------------+
-| IEEE 802.11ad   | 6750 Mb/s       | 60 GHz          | Onde Radio      |
+| 802.11ac wave2  | 6933 Mb/s       | 5,4 GHz         | Onde Radio      |
++-----------------+-----------------+-----------------+-----------------+
+| 802.11ax        | 11000 Mb/s      | 1-5 GHz         | Onde Radio      |
 +-----------------+-----------------+-----------------+-----------------+
 
 Come possiamo notare in tabella, l'evoluzione tecnologica avvenuta a
@@ -113,6 +115,12 @@ collegarsi alla rete con un SSID noto, ossia a una rete alla quale già
 ci si è connessi in precedenza, oppure a quella dal segnale più forte e
 che quindi garantisce le prestazioni migliori (modalità *always best
 connected*).
+Nell'architettura di una rete Wi-Fi "controllata" (centralizzata) è presente anche un
+elemento denominato Wireless LAN Controller o WLC. Questo è un elemento dedicato alla gestione degli access point, 
+delle risorse radio in modo coordinato, delle sessioni client, della mobilità e del roaming 
+e quindi per semplificare la gestione delle piattaforme Wi-Fi. 
+Il Controllore è spesso reso disponibile come funzione di rete 
+(interna, centralizzata o in Cloud) per garantire massima flessibilità.
 
 Accesso e autenticazione alla rete Wi-Fi
 ----------------------------------------
@@ -159,10 +167,10 @@ Sicurezza ed autenticazione
 ----------------------------
 
 Un ruolo cruciale nel progettare una rete sicura è giocato
-dall'autenticazione delle parti in comunicazione, per garantire la
-confidenzialità dei dati in transito. Infatti per autenticazione si
+dall'autenticazione delle parti in comunicazione e dalla
+confidenzialità dei dati in transito. Per autenticazione si
 intende quel processo che permette di stabilire con certezza
-l'interlocutore. La confidenzialità invece, si riferisce alla garanzia
+l'interlocutore. La confidenzialità, invece, si riferisce alla garanzia
 che i dati in transito siano accessibili solo alle parti interessate, e
 per questo scopo si utilizza la crittografia. Un utente che voglia
 accedere ad un network deve possedere delle credenziali di accesso come
@@ -191,7 +199,11 @@ Per il corretto funzionamento del sistema di autenticazione
 WPA2-Enterprise [3]_ si rende necessario un server di autenticazione
 *"Radius"* (Remote Authentication Dial In User Service).
 
-Nel caso di una wireless, è l'AP che è adibito alle funzioni di
+E' stato recentemente introdotto un ulteriore protocollo, WPA3, 
+con l'obiettivo di indirizzare le debolezze dei predecessori.
+https://www.wi-fi.org/discover-wi-fi/security
+
+Nel caso di una rete wireless, è l'AP che è adibito alle funzioni di
 controllore di accesso. Il Radius, o un server/servizio di
 autenticazione che risponda agli standard definiti dalle RFC 2865 e
 2866, permette di validare l'identità dell'utente, trasmessa dal
@@ -254,6 +266,11 @@ ed in costante evoluzione, possono mettere a repentaglio la sicurezza
 delle informazioni e dei dati, per i quali l'organizzazione deve
 garantire:
 
+-  Autenticazione: verifica dell'identità dichiarata dall'utente;
+
+-  Autorizzazione: facoltà di accesso a certe risorse o comunicazione
+   verso certe destinazioni;
+
 -  Integrità: dati non modificati durante la trasmissione;
 
 -  Segretezza e Riservatezza: cifratura dei dati in modo che non siano
@@ -264,8 +281,6 @@ garantire:
 
 -  Disponibilità: un sistema deve essere disponibile almeno al 99,9% e
    solo per gli utenti accreditati;
-
--  Autenticazione: verifica dell'identità dichiarata dall'utente.
 
 Con riguardo all'autenticazione ci possiamo riferire all'identificazione
 certa degli utenti nella rete, degli host, delle applicazioni, dei
